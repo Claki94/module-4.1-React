@@ -1,5 +1,4 @@
 import React from "react";
+import { AppRouter } from "./core/router/app-router";
 
-export const App = () => {
-  return <h1>Hola mundo</h1>;
-};
+export const App = () => <AppRouter />;
