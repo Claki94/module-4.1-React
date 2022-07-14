@@ -1,0 +1,29 @@
+@import "/global-css/variables";
+
+header.app-bar {
+  background-color: $primary;
+
+  .toolbar {
+    gap: $spacing-04;
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 $spacing-04;
+      text-decoration: none;
+      color: white;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+      font-weight: bold;
+
+      &:hover {
+        background-color: $white;
+        color: $primary;
+      }
+    }
+
+    .active-nav-link {
+      background-color: $white;
+      color: $primary;
+    }
+  }
+}

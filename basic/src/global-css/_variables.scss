@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+// Font
+$font: "Roboto", sans-serif;
+$font-size-body: 14px;
+$font-size-small: 0.5em;
+
+// App colors
+$primary: hsl(10, 84%, 32%);
+$primary-lighten: lighten($primary, 50);
+
+// Neutral colors
+$white: hsl(0, 0%, 100%);
+$light-grey: hsl(217, 12%, 63%);
+$medium-grey: hsl(216, 12%, 54%);
+$dark-grey: hsl(180, 5%, 31%);
+$black: hsl(10, 0%, 0%);
+
+// Spacings
+$spacing-01: 2px;
+$spacing-02: 4px;
+$spacing-03: 8px;
+$spacing-04: 12px;
+$spacing-05: 16px;
+$spacing-06: 24px;
+$spacing-07: 32px;
+$spacing-08: 40px;
+$spacing-09: 48px;
+$spacing-10: 64px;

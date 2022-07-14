@@ -1,0 +1,32 @@
+@import "/global-css/variables";
+
+.members-component {
+  margin: $spacing-06 0;
+
+  .members-th-row {
+    background-color: $primary-lighten;
+    font-weight: bold;
+  }
+
+  .members-td-img img {
+    width: 80px;
+  }
+
+  .members-search-title {
+    margin-bottom: $spacing-04;
+  }
+
+  .members-search-container {
+    display: flex;
+    gap: $spacing-04;
+  }
+
+  .search-button {
+    background-color: $primary;
+
+    &:hover {
+      background-color: $white;
+      color: $primary;
+    }
+  }
+}

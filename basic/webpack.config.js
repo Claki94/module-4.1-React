@@ -10,10 +10,8 @@ module.exports = {
     plugins: [new TsconfigPathsPlugin()],
   },
   entry: {
-    app: ["./index.tsx", "./global-css/styles.css"],
+    app: ["./index.tsx", "./global-css/styles.scss"],
   },
-  devtool: "eval-source-map",
-  stats: "errors-only",
   output: {
     filename: "[name].[chunkhash].js",
   },
@@ -34,18 +32,33 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        include: /global-css/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.scss$/,
         use: [
-          {
-            loader: "style-loader",
-          },
+          "style-loader",
           {
             loader: "css-loader",
+            options: {
+              modules: {
+                exportLocalsConvention: "camelCase",
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                localIdentContext: path.resolve(basePath, "src"),
+              },
+            },
           },
+          "sass-loader",
         ],
       },
     ],
+  },
+  devtool: "eval-source-map",
+  devServer: {
+    historyApiFallback: true,
+    devMiddleware: {
+      stats: "errors-only",
+    },
   },
   plugins: [
     //Generate index.html in /dist => https://github.com/ampedandwired/html-webpack-plugin

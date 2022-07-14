@@ -1,0 +1,12 @@
+@import "./variables";
+
+//Global styles
+html {
+  font-family: $font;
+  font-size: $font-size-body;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
