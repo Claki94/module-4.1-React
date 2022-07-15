@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { switchRoutes } from "./routes";
 import {
-  OrganisationDetailScene,
+  OrganisationMemberDetailsScene,
   OrganisationMembersScene,
   RickAndMortyScene,
 } from "@/scenes";
@@ -16,7 +16,7 @@ export const AppRouter = () => (
       />
       <Route
         path={switchRoutes.organisationMemberDetails}
-        element={<OrganisationDetailScene />}
+        element={<OrganisationMemberDetailsScene />}
       />
       <Route path={switchRoutes.rickAndMorty} element={<RickAndMortyScene />} />
       <Route

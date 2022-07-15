@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
 import { Container } from "@mui/system";
 import React from "react";
 import { HeaderLayout } from "./header/header.layout";
@@ -11,6 +9,6 @@ interface Props {
 export const AppLayout: React.FC<Props> = ({ children }) => (
   <React.Fragment>
     <HeaderLayout />
-    <Container>{children}</Container>
+    <Container sx={{ padding: "26px 0px" }}>{children}</Container>
   </React.Fragment>
 );

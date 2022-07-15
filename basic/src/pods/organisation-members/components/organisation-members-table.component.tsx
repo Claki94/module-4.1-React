@@ -20,7 +20,7 @@ interface Props {
 export const OrganisationMembersTable: React.FC<Props> = ({
   organisationMembers,
 }) => (
-  <TableContainer component={Paper} className={classes.membersComponent}>
+  <TableContainer component={Paper}>
     <Table sx={{ minWidth: 700 }}>
       <TableHead>
         <TableRow className={classes.membersThRow}>

@@ -1,24 +1,10 @@
 @import "/global-css/variables";
 
-.members-component {
-  margin: $spacing-06 0;
-
-  .members-th-row {
-    background-color: $primary-lighten;
-    font-weight: bold;
-  }
-
-  .members-td-img img {
-    width: 80px;
-  }
+.members-search {
+  margin-bottom: $spacing-06;
 
   .members-search-title {
     margin-bottom: $spacing-04;
-  }
-
-  .members-search-container {
-    display: flex;
-    gap: $spacing-04;
   }
 
   .search-button {
@@ -29,4 +15,18 @@
       color: $primary;
     }
   }
+}
+
+.members-th-row {
+  background-color: $primary-lighten;
+  font-weight: bold;
+}
+
+.members-td-img img {
+  width: 80px;
+}
+
+.members-search-container {
+  display: flex;
+  gap: $spacing-04;
 }

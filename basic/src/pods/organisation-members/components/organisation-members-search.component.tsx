@@ -14,7 +14,7 @@ export const OrganisationMembersSearch: React.FC<Props> = ({
   const [searchValue, setSearchValue] = React.useState(defaultValue);
 
   return (
-    <div className={classes.membersComponent}>
+    <div className={classes.membersSearch}>
       <Typography variant="h6" className={classes.membersSearchTitle}>
         Search Organisation members
       </Typography>
