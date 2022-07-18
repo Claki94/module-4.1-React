@@ -16,7 +16,7 @@ export const OrganisationMemberDetails: React.FC<Props> = ({ userDetails }) => {
       <Card className={classes.memberCard}>
         <CardContent>
           <Typography variant="h6">{userDetails.login}</Typography>
-          <Typography variant="body1">Id: {userDetails.id}</Typography>
+          <Typography variant="body1">Id:&nbsp;{userDetails.id}</Typography>
           <Typography variant="body1">Name: {userDetails.name}</Typography>
           <Typography variant="body1">
             Company: {userDetails.company}

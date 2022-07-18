@@ -22,6 +22,9 @@ export const OrganisationMembersSearch: React.FC<Props> = ({
         <Input
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
+          onKeyDown={(e) =>
+            e.key === "Enter" && setOrganisationName(searchValue)
+          }
         />
         <Button
           variant="contained"
