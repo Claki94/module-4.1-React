@@ -6,23 +6,23 @@ import {
   OrganisationMembersScene,
   RickAndMortyScene,
 } from "@/scenes";
+import { OrganisationMembersProvider } from "@/pods/organisation-members/organisation-members.provider";
 
 export const AppRouter = () => (
   <BrowserRouter basename="/">
-    <Routes>
-      <Route
-        path={switchRoutes.organisationMembers}
-        element={<OrganisationMembersScene />}
-      />
-      <Route
-        path={switchRoutes.organisationMemberDetails}
-        element={<OrganisationMemberDetailsScene />}
-      />
-      <Route path={switchRoutes.rickAndMorty} element={<RickAndMortyScene />} />
-      <Route
-        path={switchRoutes.root}
-        element={<Navigate to={switchRoutes.organisationMembers} />}
-      />
-    </Routes>
+    <OrganisationMembersProvider>
+      <Routes>
+        <Route path={switchRoutes.organisationMembers} element={<OrganisationMembersScene />} />
+        <Route
+          path={switchRoutes.organisationMemberDetails}
+          element={<OrganisationMemberDetailsScene />}
+        />
+        <Route
+          path={switchRoutes.root}
+          element={<Navigate to={switchRoutes.organisationMembers} />}
+        />
+        <Route path={switchRoutes.rickAndMorty} element={<RickAndMortyScene />} />
+      </Routes>
+    </OrganisationMembersProvider>
   </BrowserRouter>
 );

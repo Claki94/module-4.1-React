@@ -4,14 +4,14 @@ import classes from "../organisation-members.styles.scss";
 
 interface Props {
   setOrganisationName: React.Dispatch<React.SetStateAction<string>>;
-  defaultValue: string;
+  organisationName: string;
 }
 
 export const OrganisationMembersSearch: React.FC<Props> = ({
   setOrganisationName,
-  defaultValue,
+  organisationName,
 }) => {
-  const [searchValue, setSearchValue] = React.useState(defaultValue);
+  const [searchValue, setSearchValue] = React.useState(organisationName);
 
   return (
     <div className={classes.membersSearch}>
@@ -22,9 +22,7 @@ export const OrganisationMembersSearch: React.FC<Props> = ({
         <Input
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
-          onKeyDown={(e) =>
-            e.key === "Enter" && setOrganisationName(searchValue)
-          }
+          onKeyDown={(e) => e.key === "Enter" && setOrganisationName(searchValue)}
         />
         <Button
           variant="contained"

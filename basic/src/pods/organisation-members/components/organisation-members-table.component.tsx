@@ -18,9 +18,7 @@ interface Props {
   organisationMembers: OrganisationMember[];
 }
 
-export const OrganisationMembersTable: React.FC<Props> = ({
-  organisationMembers,
-}) => {
+export const OrganisationMembersTable: React.FC<Props> = ({ organisationMembers }) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -28,12 +26,9 @@ export const OrganisationMembersTable: React.FC<Props> = ({
     setPage(0);
   }, [organisationMembers]);
 
-  const handleChangePage = (event: unknown, newPage: number) =>
-    setPage(newPage);
+  const handleChangePage = (event: unknown, newPage: number) => setPage(newPage);
 
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
@@ -61,9 +56,7 @@ export const OrganisationMembersTable: React.FC<Props> = ({
                     <span>{member.id}</span>
                   </TableCell>
                   <TableCell>
-                    <Link to={routes.organisationMemberDetails(member.login)}>
-                      {member.login}
-                    </Link>
+                    <Link to={routes.organisationMemberDetails(member.login)}>{member.login}</Link>
                   </TableCell>
                 </TableRow>
               ))}
@@ -75,7 +68,7 @@ export const OrganisationMembersTable: React.FC<Props> = ({
         component="div"
         count={organisationMembers.length}
         rowsPerPage={rowsPerPage}
-        page={page}
+        page={organisationMembers.length === 0 ? 0 : page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
