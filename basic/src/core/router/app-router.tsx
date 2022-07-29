@@ -4,7 +4,7 @@ import { switchRoutes } from "./routes";
 import {
   OrganisationMemberDetailsScene,
   OrganisationMembersScene,
-  RickAndMortyScene,
+  CharactersScene,
 } from "@/scenes";
 import { OrganisationMembersProvider } from "@/pods/organisation-members/organisation-members.provider";
 
@@ -21,7 +21,7 @@ export const AppRouter = () => (
           path={switchRoutes.root}
           element={<Navigate to={switchRoutes.organisationMembers} />}
         />
-        <Route path={switchRoutes.rickAndMorty} element={<RickAndMortyScene />} />
+        <Route path={switchRoutes.rickAndMorty} element={<CharactersScene />} />
       </Routes>
     </OrganisationMembersProvider>
   </BrowserRouter>

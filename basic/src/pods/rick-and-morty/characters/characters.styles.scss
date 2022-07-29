@@ -1,0 +1,10 @@
+@import "/global-css/variables";
+
+.characters-th-row {
+  background-color: $primary-lighten;
+  font-weight: bold;
+}
+
+.characters-td-img img {
+  width: 80px;
+}

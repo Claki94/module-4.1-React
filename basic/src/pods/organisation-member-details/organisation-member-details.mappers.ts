@@ -11,9 +11,11 @@ export const mapUserDetailstoVM = (
     bio,
     company,
     public_repos: publicRepos,
-    created_at: createdAt,
+    created_at: createdAtString,
     followers,
   } = userDetails;
+
+  const createdAt = new Date(createdAtString);
 
   return {
     id,
