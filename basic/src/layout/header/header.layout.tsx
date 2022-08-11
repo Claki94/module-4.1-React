@@ -1,15 +1,15 @@
-import { AppBar, Stack, Toolbar, Typography } from "@mui/material";
-import AssignmentIcon from "@mui/icons-material/Assignment";
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 import { routes } from "@/core";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import { AppBar, Stack, Toolbar, Typography } from "@mui/material";
+
 import classes from "./header.layout.styles.scss";
 
 export const HeaderLayout: React.FC = () => {
   const getNavLinkClasses = (isActive: boolean) =>
-    [classes.navLink, isActive ? classes.activeNavLink : null]
-      .filter(Boolean)
-      .join(" ");
+    [classes.navLink, isActive ? classes.activeNavLink : null].filter(Boolean).join(" ");
 
   return (
     <AppBar position="static" className={classes.appBar}>

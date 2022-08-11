@@ -1,4 +1,4 @@
-export interface UserDetails {
+export interface Member {
   id: number;
   login: string;
   name: string;
@@ -9,7 +9,13 @@ export interface UserDetails {
   createdAt: Date;
 }
 
-export const createDefaultUserDetails = (): UserDetails => ({
+export interface MemberSummary {
+  id: number;
+  login: string;
+  avatarUrl: string;
+}
+
+export const createDefaultMember = (): Member => ({
   id: null,
   login: "",
   name: "",

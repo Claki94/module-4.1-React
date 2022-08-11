@@ -1,8 +1,7 @@
-import { routes } from "@/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { OrganisationMember } from "../organisation-members.vm";
-import classes from "../organisation-members.styles.scss";
+
+import { routes } from "@/core";
 import {
   Paper,
   Table,
@@ -14,17 +13,20 @@ import {
   TableRow,
 } from "@mui/material";
 
+import classes from "../members.styles.scss";
+import { MemberSummary } from "../members.vm";
+
 interface Props {
-  organisationMembers: OrganisationMember[];
+  members: MemberSummary[];
 }
 
-export const OrganisationMembersTable: React.FC<Props> = ({ organisationMembers }) => {
+export const MembersTable: React.FC<Props> = ({ members }) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   React.useEffect(() => {
     setPage(0);
-  }, [organisationMembers]);
+  }, [members]);
 
   const handleChangePage = (event: unknown, newPage: number) => setPage(newPage);
 
@@ -45,30 +47,28 @@ export const OrganisationMembersTable: React.FC<Props> = ({ organisationMembers 
             </TableRow>
           </TableHead>
           <TableBody>
-            {organisationMembers
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((member) => (
-                <TableRow key={member.id}>
-                  <TableCell className={classes.membersTdImg}>
-                    <img src={member.avatarUrl} />
-                  </TableCell>
-                  <TableCell>
-                    <span>{member.id}</span>
-                  </TableCell>
-                  <TableCell>
-                    <Link to={routes.organisationMemberDetails(member.login)}>{member.login}</Link>
-                  </TableCell>
-                </TableRow>
-              ))}
+            {members.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((member) => (
+              <TableRow key={member.id}>
+                <TableCell className={classes.membersTdImg}>
+                  <img src={member.avatarUrl} />
+                </TableCell>
+                <TableCell>
+                  <span>{member.id}</span>
+                </TableCell>
+                <TableCell>
+                  <Link to={routes.organisationMemberDetails(member.login)}>{member.login}</Link>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={organisationMembers.length}
+        count={members.length}
         rowsPerPage={rowsPerPage}
-        page={organisationMembers.length === 0 ? 0 : page}
+        page={members.length === 0 ? 0 : page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />

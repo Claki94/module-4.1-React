@@ -1,1 +1,2 @@
-export * from "./characters/characters.container";
+export * from "./characters/table/characters-table.container";
+export * from "./characters/detail/character-detail.container";

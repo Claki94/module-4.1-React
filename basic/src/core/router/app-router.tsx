@@ -1,28 +1,29 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { switchRoutes } from "./routes";
+
+import { MembersProvider } from "@/pods/organisation";
 import {
-  OrganisationMemberDetailsScene,
-  OrganisationMembersScene,
-  CharactersScene,
+  CharacterDetailScene,
+  CharactersTableScene,
+  MemberDetailsScene,
+  MembersTableScene,
 } from "@/scenes";
-import { OrganisationMembersProvider } from "@/pods/organisation-members/organisation-members.provider";
+
+import { switchRoutes } from "./routes";
 
 export const AppRouter = () => (
   <BrowserRouter basename="/">
-    <OrganisationMembersProvider>
+    <MembersProvider>
       <Routes>
-        <Route path={switchRoutes.organisationMembers} element={<OrganisationMembersScene />} />
-        <Route
-          path={switchRoutes.organisationMemberDetails}
-          element={<OrganisationMemberDetailsScene />}
-        />
+        <Route path={switchRoutes.organisationMembers} element={<MembersTableScene />} />
+        <Route path={switchRoutes.organisationMemberDetails} element={<MemberDetailsScene />} />
         <Route
           path={switchRoutes.root}
           element={<Navigate to={switchRoutes.organisationMembers} />}
         />
-        <Route path={switchRoutes.rickAndMorty} element={<CharactersScene />} />
+        <Route path={switchRoutes.rickAndMorty} element={<CharactersTableScene />} />
+        <Route path={switchRoutes.rickAndMortyCharacter} element={<CharacterDetailScene />} />
       </Routes>
-    </OrganisationMembersProvider>
+    </MembersProvider>
   </BrowserRouter>
 );

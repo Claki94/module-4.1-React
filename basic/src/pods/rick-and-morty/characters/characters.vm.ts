@@ -4,7 +4,7 @@ export interface Character {
   status: string;
   species: string;
   type: string;
-  gender: string;
+  gender: Gender;
   origin: string;
   location: string;
   image: string;
@@ -14,4 +14,9 @@ export interface Character {
 export interface Info {
   count: number;
   pages: number;
+}
+
+export enum Gender {
+  male,
+  female,
 }

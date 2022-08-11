@@ -1,4 +1,9 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+import { routes } from "@/core/router/routes";
 import {
+  Button,
   Paper,
   Table,
   TableBody,
@@ -8,9 +13,9 @@ import {
   TablePagination,
   TableRow,
 } from "@mui/material";
-import React from "react";
-import { Character } from "./characters.vm";
-import classes from "./characters.styles.scss";
+
+import classes from "../characters.styles.scss";
+import { Character } from "../characters.vm";
 
 interface Props {
   characters: Character[];
@@ -36,7 +41,7 @@ export const CharactersTable: React.FC<Props> = ({ characters, count, page, setP
           <TableCell>Avatar</TableCell>
           <TableCell>Name</TableCell>
           <TableCell>Location</TableCell>
-          <TableCell>Details url</TableCell>
+          <TableCell>Details URL</TableCell>
         </TableRow>
       </TableHead>
     ),
@@ -61,7 +66,9 @@ export const CharactersTable: React.FC<Props> = ({ characters, count, page, setP
                   <span>{character.location}</span>
                 </TableCell>
                 <TableCell>
-                  <span>Enlace a detalles</span>
+                  <Link to={routes.rickAndMortyCharacter(character.id)}>
+                    <Button>Go</Button>
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}

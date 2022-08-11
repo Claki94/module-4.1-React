@@ -5,6 +5,60 @@
   font-weight: bold;
 }
 
-.characters-td-img img {
-  width: 80px;
+.characters-td-img {
+  img {
+    width: 80px;
+  }
+}
+
+.character-detail-card {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 300px) {
+    flex-direction: column;
+    row-gap: $spacing-04;
+  }
+
+  .character-image-section {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+
+    img {
+      width: 75%;
+      border-radius: 50%;
+    }
+  }
+
+  .details-section {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+
+    .details-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: $spacing-02;
+
+      .detail-info {
+        display: flex;
+        align-items: center;
+
+        .detail-title {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.go-back-button {
+  margin-top: $spacing-04;
+}
+
+.search-input-container {
+  display: flex;
+  column-gap: $spacing-02;
+  margin-bottom: $spacing-04;
 }

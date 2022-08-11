@@ -34,3 +34,20 @@ export interface Location {
   name: string;
   url: string;
 }
+
+export const createDefaultCharacter = (): Character => {
+  return {
+    id: null,
+    name: "",
+    status: "",
+    species: "",
+    type: "",
+    gender: null,
+    origin: null,
+    location: null,
+    image: "",
+    created: null,
+    episode: [],
+    url: "",
+  };
+};

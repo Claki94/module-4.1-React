@@ -1,13 +1,15 @@
+import { getCharacterByIdApi, getCharactersCollectionApi } from "./api/characters.api";
+import { mapCharactersCollectionToVM, mapCharacterToVM, mapInfoToVM } from "./characters.mappers";
 import { Character, Info } from "./characters.vm";
-import { getCharactersCollectionApi } from "./api/characters.api";
-import { mapCharactersCollectionToVM, mapInfoToVM } from "./characters.mappers";
 
-export const getInfoSection = async (): Promise<Info> => {
-  const { info } = await getCharactersCollectionApi();
-  return mapInfoToVM(info);
+type Characters = [Info, Character[]];
+
+export const getCharactersCollection = async (page: number, name: string): Promise<Characters> => {
+  const { info, results } = await getCharactersCollectionApi(page, name);
+  return results ? [info, mapCharactersCollectionToVM(results)] : [{ count: 0, pages: 0 }, []];
 };
 
-export const getCharactersCollection = async (page: number): Promise<Character[]> => {
-  const { results } = await getCharactersCollectionApi(page);
-  return mapCharactersCollectionToVM(results);
+export const getCharacterById = async (id: string): Promise<Character> => {
+  const character = await getCharacterByIdApi(id);
+  return mapCharacterToVM(character);
 };
